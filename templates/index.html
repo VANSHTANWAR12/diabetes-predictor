@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../static/style.css">
+    <title>DIABETES PREDICTOR</title>
+</head>
+<body>
+    <h1><strong><span style="color: blue;">Gluco</span><span style="color: green;">Vision</span>-Predict Your Diabetes Risk</h1>
+    </strong>
+        <div class="x">
+    <div class="y">
+    <form action="{{url_for('predict')}}" method="post">
+        <input type="text" placeholder="Pregnancy" required="required" name="Pregnancies"><br>
+        <input type="text" placeholder="Glucose" required="required" name="Glucose"><br>
+        <input type="text" placeholder="BloodPressure" required="required" name="BloodPressure"><br>
+        <input type="text" placeholder="SkinThickness" required="required" name="SkinThickness"><br>
+        <input type="text" placeholder="Insulin" required="required" name="Insulin"><br>
+        <input type="text" placeholder="BMI" required="required" name="BMI"><br>
+        <input type="text" placeholder="DiabetesPedigreeFunction" required="required" name="DiabetesPedigreeFunction"><br>
+        <input type="text" placeholder="Age" required="required" name="Age"><br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">PREDICT</button>
+    </form>
+  
+    </div>
+<div class="z">
+  {% if results[0] == 0 %}
+    <div class="risk-card low-risk">
+      <h3>✅ Low Diabetes Risk</h3>
+      <p>You're doing great! Keep up the healthy habits. 🥗🏃‍♂</p>
+    </div>
+  {% else %}
+    <div class="risk-card high-risk">
+      <h3>⚠ High Diabetes Risk</h3>
+      <p>Consider lifestyle changes and consult a healthcare professional. 🩺</p>
+    </div>
+  {% endif %}
+</div>
+</div>
+</body>
+</html>
